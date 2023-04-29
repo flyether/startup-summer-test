@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  width: 100%;
+  max-width: 315px;
+  background: #ffffff;
+  border: 1px solid #eaebed;
+  border-radius: 12px;
+  height: 380px;
+}
+
+.title{
+   display: flex;
+   justify-content: space-between;
+}
+
+.reset{
+  background: #ffffff;
+  font-weight: 500;
+font-size: 14px;
+line-height: 20px;
+color: #ACADB9;
+}

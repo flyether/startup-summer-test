@@ -1,0 +1,22 @@
+.container{
+   display: flex;
+
+ 
+   width: 100%;
+   gap: 60px;
+   justify-content: center;
+align-items: center;
+}
+
+.link,
+.link__active
+{
+   white-space: nowrap;
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 20px;
+}
+
+.link__active{
+ color: #5E96FC;
+   }
