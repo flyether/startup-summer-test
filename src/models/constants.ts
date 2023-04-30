@@ -12,7 +12,8 @@ export enum Url {
   PATH_FAVORITE= '/favorite',
   PATH_SECURITY = '/security',
   PATH_VACANCIES = '/vacancies/',
-  PATH_AUTH= '/oauth2/password/'
+  PATH_AUTH= '/oauth2/password/',
+  PATH_VACANCY ='/vacancy',
 }
 
 

@@ -22,7 +22,14 @@
 .star{
   width: 22px;
   height: 22px;
-  background-image: url(../../assets/svg/StarFull.svg);
+ 
   background-repeat: no-repeat;
   background-color: transparent;
+}
+
+.empty__star{
+  background-image: url(../../assets/svg/StarEmpty.svg);
+}
+.full__star{
+  background-image: url(../../assets/svg/StarFull.svg);
 }
