@@ -4,10 +4,16 @@ export type InitialStateProps = {
   searchValue: string;
   token: string;
   favoriteArray: number[] | null;
+  catalogue:string;
+  payment_from: number | null;
+  payment_to: number | null;
 }
 
 const initialState: InitialStateProps = {
   searchValue: '',
+  payment_to: null,
+  payment_from:null,
+  catalogue:'',
   token: '',
   favoriteArray:[],
 };
@@ -23,6 +29,15 @@ export const slice = createSlice({
     setSearchValue(state, action) {
       state.searchValue = action.payload;
     },
+    setCatalogue(state, action) {
+      state.catalogue = action.payload;
+    },
+    setPaymentTo(state, action) {
+      state.payment_to = action.payload;
+    },
+    setPaymentFrom(state, action) {
+      state.payment_from = action.payload;
+    },
     setFavoriteArray(state, action) {
       state.favoriteArray = action.payload;
     },
@@ -36,6 +51,6 @@ export const slice = createSlice({
   },
 });
 
-export const { setSearchValue, setToken, removeSlice, setFavoriteArray} =
+export const { setSearchValue, setPaymentFrom, setPaymentTo, setCatalogue, setToken, removeSlice, setFavoriteArray} =
   slice.actions;
 export default slice.reducer;

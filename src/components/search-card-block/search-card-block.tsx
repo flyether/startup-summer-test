@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 
 export  const SearchCardBlock = () => {
   const { data } = API.useVacanciesSearchQuery({});
-
+  
   return (
     <div className={styles.container}>
     <Search/>

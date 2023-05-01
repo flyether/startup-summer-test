@@ -13,6 +13,7 @@ export enum Url {
   PATH_SECURITY = '/security',
   PATH_VACANCIES = '/vacancies/',
   PATH_AUTH= '/oauth2/password/',
+  PATH_CATALOGUES= '/catalogues/',
   PATH_VACANCY ='/vacancy',
 }
 

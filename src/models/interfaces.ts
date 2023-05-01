@@ -158,19 +158,20 @@ export type ResponseVacancies = {
   
 };
 
-export type CreateYearParams = {
-  year?: number;
-  locale?: string;
-  monthNumber?: number;
-};
 
-export type UseCalendarParams = {
-  locale?: string;
-  selectedDate?: Date;
-  firstWeekDayNumber?: number;
-};
+export type Position = {
+  title_rus: string;
+  url_rus: string;
+  title: string;
+  id_parent: number;
+  key: number;
+}
 
-export type IResetPassword = {
-  new_password: string;
-  current_password: string;
-};
+export type Catalogue = {
+  title_rus: string;
+  url_rus: string;
+  title: string;
+  title_trimmed: string;
+  key: number;
+  positions: Position[];
+}

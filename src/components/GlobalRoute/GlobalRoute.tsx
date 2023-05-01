@@ -6,6 +6,7 @@ import ErrorBoundary from '../../utils/ErrorBoundary';
 import { Layout } from '../layout';
 import { Url } from '../../models/constants';
 import { VacancyPage } from '../../pages/VacancyPage';
+import { FavoritePage } from '../../pages/FavoritPage';
 
 
 const GlobalRoute = () => {
@@ -23,7 +24,7 @@ const GlobalRoute = () => {
         <Route index={true} element={<Navigate to={Url.PATH_FIND}  />} />
         <Route index={true} element={<WelcomePage />} />
         <Route path={Url.PATH_FIND}  element={<WelcomePage />} />
-        <Route path={Url.PATH_FAVORITE} element={<WelcomePage />} />
+        <Route path={Url.PATH_FAVORITE} element={<FavoritePage />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path={`${Url.PATH_VACANCY}/:vacancyId`} element={<VacancyPage /> } />
         <Route />

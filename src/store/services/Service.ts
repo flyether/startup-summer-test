@@ -1,5 +1,6 @@
 
-import { Authorization, JobSearchParams, ResponseVacancies, VerificationToken } from '../../models';
+
+import { Authorization, CardProps, Catalogue, JobSearchParams, ResponseVacancies, VerificationToken } from '../../models';
 import { Url } from '../../models/constants';
 import { setToken } from '../slices/Slice';
 
@@ -18,57 +19,32 @@ export const API = commonApi.injectEndpoints({
           dispatch(setToken(result.data.access_token));
       
         } catch (e) {
-          console.error('userApi getByID error', e);
+          console.error('token error', e);
         }
       },
     }),
 
     vacanciesSearch: build.query< ResponseVacancies, JobSearchParams>({
-      query: ({published=1, keyword = '', payment_from = 0, payment_to = 0, catalogues = [] }) => ({
+      query: ({published=1, keyword = '',  payment_from = null, payment_to = null, catalogues = [] }) => ({
         url: Url.PATH_VACANCIES,
-        params: {published, keyword, payment_from, payment_to, catalogues },
+        params: {
+          published,
+          keyword,
+          catalogues,
+          ...(payment_from !== null ||  0  ? { payment_from } : {}),
+          ...(payment_to !== null || 0  ? { payment_to } : {}),
+        },
        }),
     
     }),
-    
-    // authorizationUser: build.mutation<UserResponse, AuthorizationData>({
-    //   query: (userInfo) => ({
-    //     url: '/oauth2/password/',
-    //     method: 'POST',
-    //     body: userInfo,
-    //   }),
-    //   async onQueryStarted({}, { dispatch, queryFulfilled }) {
-    //     try {
-    //       const result = await queryFulfilled;
-    //       // dispatch(setUser(result.data));
-    //     } catch (e) {
-    //       console.error('userApi Authorization error', e);
-    //     }
-    //   },
-    // }),
+    getVacanciesById: build.query<CardProps, string>({
+      query: (id) => ({ url: `${Url.BASE_URL}${Url.PATH_VACANCIES}${id}` }),
 
-    // setPassword: build.mutation<UserResponse, IResetPassword>({
-    //   query: (userInfo) => ({
-    //     url: 'users/set_password/',
-    //     method: 'POST',
-    //     body: userInfo,
-    //   }),
-    // }),
+    }),
+    getCatalogues: build.query<Catalogue[], void>({
+      query: () => ({ url: Url.PATH_CATALOGUES  }),
 
-    // verificationTokenPost: build.mutation<UserResponse, VerificationToken>({
-    //   query: (token) => ({
-    //     url: '/validate-email',
-    //     method: 'POST',
-    //     body: token,
-    //   }),
-    //   async onQueryStarted({}, { dispatch, queryFulfilled }) {
-    //     try {
-    //       const result = await queryFulfilled;
-    //       // dispatch(setUser(result.data));
-    //     } catch (e) {
-    //       console.error('userApi Authorization error', e);
-    //     }
-    //   },
-    // }),
+    }),
+
   }),
 });

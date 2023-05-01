@@ -1,25 +1,25 @@
+import { EmptyBlock } from "../../components/emptyBlock";
+
 const ErrorPage = () => {
   return (
     <main
-      className="main"
       style={{
         padding: '1rem',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
       }}
     >
       <h1
         style={{
-          margin: '1rem 1rem 1rem 4rem',
+        
+          fontSize: '4rem',
+          color: '#5E96FC'
         }}
       >
         404
       </h1>
-      <h3
-        style={{
-          padding: '1rem',
-        }}
-      >
-        There is nothing here!
-      </h3>
+   <EmptyBlock/>
     </main>
   );
 };
