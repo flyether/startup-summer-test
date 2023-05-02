@@ -3,6 +3,7 @@ import { Button, TextInput } from '@mantine/core';
 import { FiSearch } from 'react-icons/fi';
 import { useState } from 'react';
 import { useAppDispatch, setSearchValue } from '../../store';
+import styles from './styles.module.css';
 
 export const Search = () => {
    const [searchValue, setInputSearchValue] = useState('');
@@ -14,34 +15,39 @@ export const Search = () => {
       dispatch(setSearchValue(searchValue))
    }
    const rightSection = (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div className={styles.button__box} >
          <Button
+         className={styles.button}
             data-elem='search-button'
             onClick={handleClick}
-            styles={{
-               root: {
-                  borderRadius: '8px',
-                  paddingLeft: 20,
-                  paddingRight: 20,
-               }
-            }} >
+         >
             Поиск
          </Button>
       </div>
    );
    return (
+      <>
       <TextInput
          data-elem='search-input'
          onChange={handleChange}
          placeholder="Введите название вакансии"
-         icon={<FiSearch />}
+         icon={<FiSearch className={styles.magnifier} />}
          rightSectionWidth={80}
          rightSection={rightSection}
+         className={styles.search} 
          styles={{
-            rightSection: { marginRight: '10px' }, input: {
+            input: {
                borderRadius: '8px', height: '48px'
             }
          }}
       />
+            <Button
+         className={styles.button__media}
+            data-elem='search-button'
+            onClick={handleClick}
+         >
+            Поиск
+         </Button>
+      </>
    );
 };

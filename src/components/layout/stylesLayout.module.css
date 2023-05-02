@@ -1,0 +1,31 @@
+
+
+.heder{
+  display: flex;
+ align-items: center;
+ height: 100%;
+ max-width: 1440px;
+ margin: 0 auto;
+ padding: 0 265px 0 145px;
+}
+
+.heder__logo{
+  gap: 7px;
+display: flex;
+grid-template-columns: 7px;
+align-items: center;
+font-family: 'Poppins';
+font-weight: 600;
+font-size: 24px;
+letter-spacing:'0.02em' ;
+}
+
+
+@media (max-width: 1055px) {
+  .heder{
+justify-content: center;
+  
+   margin: 0 auto;
+   padding: 0 10% 0 10%;
+  }
+}

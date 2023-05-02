@@ -39,3 +39,16 @@
 .reset:hover {
   color: #5e96fc;
 }
+
+
+@media (max-width: 1055px) {
+
+  .title {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+}

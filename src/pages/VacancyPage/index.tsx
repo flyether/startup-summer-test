@@ -49,7 +49,7 @@ export const VacancyPage = () => {
           padding="xl"
           component="a"
         >
-          <Group position="apart" style={{ marginBottom: 5, marginTop: 5 }}>
+          <Group position="apart" >
             <Text className={styles.text__vac}>
               {card.profession}
             </Text>
@@ -61,17 +61,15 @@ export const VacancyPage = () => {
               })}
             />
           </Group>
-          <Group style={{ marginBottom: 5, marginTop: 5 }}>
-            <Text weight={700}>з/п от {card.payment_from}  </Text>
-            <Text weight={400} size="md">
-              • {card.type_of_work?.title}
+          <Group style={{ marginBottom: 9, marginTop: 7 }}>
+            <Text className={styles.text__payment}>з/п от {card.payment_from} rub </Text>
+            <Text className={styles.group__mid__text}>
+              • &nbsp; {card.type_of_work?.title}
             </Text>
           </Group>
           <Group style={{ marginBottom: 5, marginTop: 5 }}>
-            <ActionIcon>
-              <FiMapPin style={{ width: 16, height: 16, }} />
-            </ActionIcon>
-            <Text weight={400} size="md">
+            <FiMapPin style={{ width: 16, height: 16, color: '#ACADB9' }} />
+            <Text className={styles.town__text}>
               {card.town.title}
             </Text>
           </Group>

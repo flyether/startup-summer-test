@@ -34,7 +34,8 @@ export const EmptyBlock = () => {
             borderRadius: '8px',
             color: '#3B7CD3',
             background: '#DEECFF',
-            margin: 'auto'
+            margin: 'auto',
+            width: '164px',
           }
         }}>Поиск Вакансий</Button>
     </div>

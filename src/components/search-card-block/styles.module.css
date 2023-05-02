@@ -7,58 +7,74 @@
   max-width: 770px;
 }
 
-.cards__container{
+.cards__container {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   gap: 20px;
- 
 }
-.pagination{
+.pagination {
   margin: 30px auto 44px;
   display: flex;
   justify-content: center;
   width: 100%;
 }
-.star{
+.star {
   width: 22px;
   height: 22px;
   background-repeat: no-repeat;
   background-color: transparent;
 }
 
-.text{
+.text {
   font-size: 20px;
-font-weight: 600;
-color:#5E96FC;
+  font-weight: 600;
+  color: #5e96fc;
 }
-.empty__star{
+.empty__star {
   background-image: url(../../assets/svg/StarEmpty.svg);
 }
-.full__star{
+.full__star {
   background-image: url(../../assets/svg/StarFull.svg);
 }
-.card{
+.card {
   max-width: 773px;
   width: 100%;
   padding: 10px 20px;
 }
 
-.group__up{
+.group__up {
   margin: 10px 4px 5px;
 }
 
-.group__mid{
+.group__mid {
   gap: 10px;
   margin: 0px 4px 8px;
   word-spacing: 0.07em;
   letter-spacing: 0.015em;
 }
-.group__mid__text{
+.group__mid__text {
   letter-spacing: 0.02em;
   word-spacing: 0.01em;
 }
 
-.group__down{
+.group__down {
   gap: 10px;
-  margin:0 5px 9px;
+  margin: 0 5px 9px;
+}
+
+.button__media {
+  display: none;
+}
+.button {
+  border-radius: 8px;
+  padding: 0 20px;
+  margin-right: 20px;
+}
+@media (max-width: 500px) {
+  .button__media {
+    display: block;
+  }
+  .button {
+    display: none;
+  }
 }

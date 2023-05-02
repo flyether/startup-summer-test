@@ -98,7 +98,6 @@ export const Filters = () => {
           marginBottom: '8px',
           padding:'8px'
         },
-      
       }} value={fromValue} placeholder="От" searchable onChange={handleChangeFrom} label={<Label text="Оклад" />} clearable data={paymentIn} />
       <Select data-elem='salary-to-input'  size="md" styles={{
         input: {

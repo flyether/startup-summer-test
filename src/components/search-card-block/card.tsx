@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { FiMapPin } from 'react-icons/fi';
 import cnBind from 'classnames/bind';
 import { CardProps } from '../../models';
-import { Card, Text, Group, ActionIcon, } from '@mantine/core';
+import { Card, Text, Group} from '@mantine/core';
 import styles from './styles.module.css';
 import { setFavoriteArray, useAppDispatch, useAppSelector } from '../../store';
 import { Url } from '../../models/constants';
