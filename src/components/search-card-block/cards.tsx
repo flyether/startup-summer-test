@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
-
 import { ResponseVacancies } from '../../models';
 import { Pagination } from '@mantine/core';
 import styles from './styles.module.css';
 import { useAppSelector } from '../../store';
-
 import { API } from '../../store/services/Service';
 import { CardVacancy } from './card';
 import { EmptyBlock } from '../emptyBlock';
-
 
 export const Cards = ({ objects }: ResponseVacancies) => {
    const { catalogue, searchValue, payment_from, payment_to } = useAppSelector((state) => state.commonSlice);
@@ -46,7 +43,7 @@ export const Cards = ({ objects }: ResponseVacancies) => {
             ))}
          </div>
             <div className={styles.pagination}>
-               <Pagination  total={objects.length / cardsPerPage} onChange={setPage} />
+               <Pagination total={objects.length / cardsPerPage} onChange={setPage} />
             </div> </>}
       </>
    );

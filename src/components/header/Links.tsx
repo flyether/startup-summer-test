@@ -21,7 +21,7 @@ export const Links = () => {
     }
     if (location.pathname.includes('/favorite')) {
       setFavorite(true);
-      setFind(false);    
+      setFind(false);
     }
   }, [location.pathname]);
 
@@ -30,30 +30,28 @@ export const Links = () => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-       if (NavigationBlockRef.current && !NavigationBlockRef.current.contains(event.target as Node)) {
+    const handleClickOut = (event: MouseEvent) => {
+      if (NavigationBlockRef.current && !NavigationBlockRef.current.contains(event.target as Node)) {
         setOpened(false);
-       }
+      }
     };
-
-    document.addEventListener('click', handleClickOutside);
-
+    document.addEventListener('click', handleClickOut);
     return () => {
-       document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('click', handleClickOut);
     };
- }, [opened]);
+  }, [opened]);
 
   return (
     <>
-    <div className={styles.container}>  
-      <div
-        className={cx({
-          [styles.link__active]: isFind,
-          [styles.link]: !isFind,
-        })}
-      >
-        <Link to={Url.PATH_FIND}>Поиск Вакансий</Link>
-      </div>    
+      <div className={styles.container}>
+        <div
+          className={cx({
+            [styles.link__active]: isFind,
+            [styles.link]: !isFind,
+          })}
+        >
+          <Link to={Url.PATH_FIND}>Поиск Вакансий</Link>
+        </div>
         <div
           className={cx({
             [styles.link__active]: isFavorite,
@@ -62,33 +60,33 @@ export const Links = () => {
         >
           <Link to={Url.PATH_FAVORITE}>Избранное</Link>
         </div>
-    </div>
-    <div ref={NavigationBlockRef}  >
-    <Burger
-    className={styles.burger}
-      opened={opened}
-      onClick={() => setOpened((o) => !o)}
-      title={title}
-    />
-    {opened &&  <div className={styles.container__burger}>  
-      <div
-        className={cx({
-          [styles.link__active]: isFind,
-          [styles.link]: !isFind,
-        })}
-      >
-        <Link onClick={handleLinkClick} to={Url.PATH_FIND}>Поиск Вакансий</Link>
-      </div>    
-        <div
-          className={cx({
-            [styles.link__active]: isFavorite,
-            [styles.link]: !isFavorite,
-          })}
-        >
-          <Link onClick={handleLinkClick} to={Url.PATH_FAVORITE}>Избранное</Link>
-        </div>
-    </div> }
-    </div>
+      </div>
+      <div ref={NavigationBlockRef}  >
+        <Burger
+          className={styles.burger}
+          opened={opened}
+          onClick={() => setOpened((o) => !o)}
+          title={title}
+        />
+        {opened && <div className={styles.container__burger}>
+          <div
+            className={cx({
+              [styles.link__active]: isFind,
+              [styles.link]: !isFind,
+            })}
+          >
+            <Link onClick={handleLinkClick} to={Url.PATH_FIND}>Поиск Вакансий</Link>
+          </div>
+          <div
+            className={cx({
+              [styles.link__active]: isFavorite,
+              [styles.link]: !isFavorite,
+            })}
+          >
+            <Link onClick={handleLinkClick} to={Url.PATH_FAVORITE}>Избранное</Link>
+          </div>
+        </div>}
+      </div>
     </>
   );
 };

@@ -1,8 +1,8 @@
 import GlobalRoute from './components/GlobalRoute';
 
 function App() {
-  return ( 
-      <GlobalRoute />
+  return (
+    <GlobalRoute />
   );
 }
 

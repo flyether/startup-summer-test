@@ -7,36 +7,44 @@
   padding-left: 20px;
   max-width: 793px;
 }
+
 .title {
   font-weight: 700;
   font-size: 20px;
   margin: 0px auto 12px;
 }
+
 .text__vac {
   font-size: 28px;
   font-weight: 700;
 }
+
 .text__payment {
   font-weight: 700;
   font-size: 20px;
 }
+
 .group__mid__text {
   font-weight: 400;
   font-size: 20px;
 }
+
 .town__text {
   font-weight: 400;
   font-size: 16px;
 }
+
 .text {
   font-size: 16px;
   line-height: 140%;
 }
+
 .card {
   margin: 20px auto 75px;
   padding: 18px 25px 18px 25px;
   width: 100%;
 }
+
 .card__up {
   padding: 18px 25px 18px 25px;
   width: 100%;
@@ -52,14 +60,15 @@
 .empty__star {
   background-image: url(../../assets/svg/StarEmpty.svg);
 }
+
 .full__star {
   background-image: url(../../assets/svg/StarFull.svg);
 }
 
 @media (max-width: 1055px) {
-   .container {
-      margin: 40px 20px 44px;
-      width: 100%;
-      padding-left: 0px;
-    }
+  .container {
+    margin: 40px 20px 44px;
+    width: 100%;
+    padding-left: 0px;
+  }
 }

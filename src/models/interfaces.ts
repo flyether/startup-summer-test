@@ -1,4 +1,4 @@
-import { SerializedError } from '@reduxjs/toolkit';
+import { SerializedError } from "@reduxjs/toolkit";
 
 export interface IError extends SerializedError {
   data?: {
@@ -12,7 +12,6 @@ export interface IError extends SerializedError {
   status?: number;
 }
 
-
 export type VerificationToken = {
   access_token: string;
   refresh_token: string;
@@ -22,9 +21,9 @@ export type VerificationToken = {
 };
 
 export type JobSearchParams = {
-  page?:number;
-  count?:number;
-  total?:number;
+  page?: number;
+  count?: number;
+  total?: number;
   id_vacancy?: number;
   ids?: number[];
   id_client?: number;
@@ -70,16 +69,15 @@ export type JobSearchParams = {
   lang_level?: number;
   languages_particular?: number;
   nolang?: number;
-}
+};
 
-
-export  type Authorization = {
-  login:string;
-  password:string;
+export type Authorization = {
+  login: string;
+  password: string;
   client_id: number;
-  client_secret:string;
+  client_secret: string;
   hr?: number;
- }
+};
 
 type IdTitle = {
   id: number;
@@ -100,27 +98,27 @@ export type CardProps = {
   resumesubscription_kwc?: string;
   resumesubscription_rws?: number;
   date_pub_to: number | Date;
-  date_archived : number| Date;
-  date_published: number| Date;
+  date_archived: number | Date;
+  date_published: number | Date;
   work?: string;
   compensation?: string;
   address?: string;
   candidat?: string;
-  town:{
+  town: {
     id: number;
     title: string;
     declension?: string;
     genitive?: string;
   };
-  type_of_work?:IdTitle;
-  place_of_work?:IdTitle;
-  education?:IdTitle;
-  agency?:IdTitle;
-  experience?:IdTitle;
-  maritalstatus?:IdTitle;
-  children?:IdTitle;
-  languages?:IdTitle[];
-  catalogues:IdTitle[];
+  type_of_work?: IdTitle;
+  place_of_work?: IdTitle;
+  education?: IdTitle;
+  agency?: IdTitle;
+  experience?: IdTitle;
+  maritalstatus?: IdTitle;
+  children?: IdTitle;
+  languages?: IdTitle[];
+  catalogues: IdTitle[];
   is_archive: boolean;
   is_storage: boolean;
   contact?: string;
@@ -131,7 +129,7 @@ export type CardProps = {
   already_sent_on_vacancy?: boolean;
   favorite?: boolean;
   driving_licence?: string[];
-  metro?:{
+  metro?: {
     id: number;
     title: string;
     id_metro_line?: number;
@@ -141,7 +139,7 @@ export type CardProps = {
   payment_to?: number;
   currency: string;
   moveable?: boolean;
-  gender?:IdTitle;
+  gender?: IdTitle;
   age_from?: number;
   age_to?: number;
   firm_name: string;
@@ -159,12 +157,9 @@ export type CardProps = {
   }[];
 };
 
-
 export type ResponseVacancies = {
   objects: CardProps[];
-  
 };
-
 
 export type Position = {
   title_rus: string;
@@ -172,7 +167,7 @@ export type Position = {
   title: string;
   id_parent: number;
   key: number;
-}
+};
 
 export type Catalogue = {
   title_rus: string;
@@ -181,4 +176,4 @@ export type Catalogue = {
   title_trimmed: string;
   key: number;
   positions: Position[];
-}
+};

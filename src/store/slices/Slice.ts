@@ -1,29 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export type InitialStateProps = {
   searchValue: string;
   token: string;
   favoriteArray: number[] | null;
-  catalogue:string;
+  catalogue: string;
   payment_from: number | null;
   payment_to: number | null;
-}
-
-const initialState: InitialStateProps = {
-  searchValue: '',
-  payment_to: null,
-  payment_from:null,
-  catalogue:'',
-  token: '',
-  favoriteArray:[],
 };
 
-const favoriteArrayFromLocalStorage = localStorage.getItem('favoriteArray');
+const initialState: InitialStateProps = {
+  searchValue: "",
+  payment_to: null,
+  payment_from: null,
+  catalogue: "",
+  token: "",
+  favoriteArray: [],
+};
+
+const favoriteArrayFromLocalStorage = localStorage.getItem("favoriteArray");
 initialState.favoriteArray = favoriteArrayFromLocalStorage
-  ? JSON.parse(favoriteArrayFromLocalStorage):[];
+  ? JSON.parse(favoriteArrayFromLocalStorage)
+  : [];
 
 export const slice = createSlice({
-  name: 'slice',
+  name: "slice",
   initialState,
   reducers: {
     setSearchValue(state, action) {
@@ -45,12 +46,19 @@ export const slice = createSlice({
       state.token = action.payload;
     },
     removeSlice(state) {
-      state.searchValue = '';
-      state.token = '';
+      state.searchValue = "";
+      state.token = "";
     },
   },
 });
 
-export const { setSearchValue, setPaymentFrom, setPaymentTo, setCatalogue, setToken, removeSlice, setFavoriteArray} =
-  slice.actions;
+export const {
+  setSearchValue,
+  setPaymentFrom,
+  setPaymentTo,
+  setCatalogue,
+  setToken,
+  removeSlice,
+  setFavoriteArray,
+} = slice.actions;
 export default slice.reducer;

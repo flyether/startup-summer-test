@@ -2,7 +2,7 @@
 import { useParams } from 'react-router-dom';
 import styles from './styles.module.css';
 import { API } from '../../store/services/Service';
-import { Card, Text, Group, ActionIcon, } from '@mantine/core';
+import { Card, Text, Group } from '@mantine/core';
 import { FiMapPin } from 'react-icons/fi';
 import cnBind from 'classnames/bind';
 import { useEffect, useState } from 'react';
@@ -41,7 +41,6 @@ export const VacancyPage = () => {
 
   return (
     <div className={styles.container}>
-
       {card &&
         <> <Card
           className={styles.card__up}

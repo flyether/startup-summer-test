@@ -1,11 +1,11 @@
 import styles from './styles.module.css';
-import {  Button, Select } from '@mantine/core';
+import { Button, Select } from '@mantine/core';
 import { useRef, useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { setCatalogue, setPaymentFrom, setPaymentTo, useAppDispatch } from '../../store';
 import { API } from '../../store/services/Service';
-import { Catalogue } from '../../models';
 import { payment } from './payment';
+import { stringCattingFunc } from './stringCattingFunc';
 
 export const Filters = () => {
   const { data: dataCatalogue } = API.useGetCataloguesQuery();
@@ -15,23 +15,20 @@ export const Filters = () => {
   const [isFocusArrow, setFocusArrow] = useState(false);
   const dispatch = useAppDispatch();
   let titles: { value: string; label: string; }[] = []
+  const ref = useRef<HTMLInputElement>(null);
   const paymentIn: { value: string; label: string; }[] = payment.map((e) => ({
     value: e,
     label: e,
   }));
-  const selectRef = useRef<HTMLSelectElement | null>(null);
 
   const handleRightSectionClick = () => {
-     if (selectRef.current) {
-      selectRef.current.focus();
+    if (ref.current) {
+      ref.current.focus();
     }
   };
 
   if (dataCatalogue) {
-    titles = dataCatalogue.map((catalogue: Catalogue) => ({
-      value: `${catalogue.key}`,
-      label: catalogue.title_rus,
-    }));
+    titles = stringCattingFunc(dataCatalogue)
   }
 
   const Label = ({ text }: { text: string }) => {
@@ -85,21 +82,27 @@ export const Filters = () => {
         <div className={styles.title__text} >Фильтры</div>
         <button className={styles.reset} onClick={handleReset}>Сбросить все &nbsp;  x</button>
       </div>
-      <Select data-elem='industry-select' size="md" styles={{
+      <Select ref={ref} data-elem='industry-select' size="md" styles={{
         input: {
           borderRadius: '8px',
           marginBottom: '14px'
         },
-    
-      }} onFocus={handleFocus} value={selectValue} placeholder="Выберете отрасль" searchable onChange={handleChange} onBlur={handleBlur} label={<Label text="Отрасль" />} clearable data={titles} rightSection={isFocusArrow ? <FiChevronUp color='#5E96FC' size={20} onClick={handleRightSectionClick}/> : <FiChevronDown onClick={handleRightSectionClick} color='rgba(172, 173, 185, 1)' size={20} />} />
+        item: {
+          borderRadius: '8px',
+          marginLeft: '6px',
+          marginRight: '6px',
+          padding: '8px',
+          fontSize: '14px',
+        }
+      }} onFocus={handleFocus} value={selectValue} placeholder="Выберете отрасль" searchable onChange={handleChange} onBlur={handleBlur} label={<Label text="Отрасль" />} clearable data={titles} rightSection={isFocusArrow ? <FiChevronUp color='#5E96FC' size={20} onClick={handleRightSectionClick} /> : <FiChevronDown onClick={handleRightSectionClick} color='rgba(172, 173, 185, 1)' size={20} />} />
       <Select data-elem='salary-from-input' size="md" styles={{
         input: {
           borderRadius: '8px',
           marginBottom: '8px',
-          padding:'8px'
+          padding: '8px'
         },
       }} value={fromValue} placeholder="От" searchable onChange={handleChangeFrom} label={<Label text="Оклад" />} clearable data={paymentIn} />
-      <Select data-elem='salary-to-input'  size="md" styles={{
+      <Select data-elem='salary-to-input' size="md" styles={{
         input: {
           borderRadius: '8px',
         }
@@ -110,7 +113,7 @@ export const Filters = () => {
           root: {
             borderRadius: '8px',
             marginTop: '18px',
-            height:'40px'
+            height: '40px'
           }
         }}>
         Применить

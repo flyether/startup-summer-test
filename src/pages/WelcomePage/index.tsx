@@ -4,10 +4,10 @@ import styles from './styles.module.css';
 
 export const WelcomePage = () => {
   return (
-    <div className={styles.container}> 
-      <Filters/>
-      <SearchCardBlock/>
-     </div>
+    <div className={styles.container}>
+      <Filters />
+      <SearchCardBlock />
+    </div>
   );
 };
 

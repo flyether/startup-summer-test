@@ -11,7 +11,7 @@ body {
   color: black;
   background-color: var(--background-color);
 }
-.logo{
+.logo {
   background-image: url(../assets/svg/Union.svg);
   width: 30px;
   height: 30px;
@@ -28,4 +28,3 @@ body {
   flex-direction: row;
   margin: 176px auto 0;
 }
-

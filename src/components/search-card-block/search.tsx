@@ -17,7 +17,7 @@ export const Search = () => {
    const rightSection = (
       <div className={styles.button__box} >
          <Button
-         className={styles.button}
+            className={styles.button}
             data-elem='search-button'
             onClick={handleClick}
          >
@@ -27,22 +27,22 @@ export const Search = () => {
    );
    return (
       <>
-      <TextInput
-         data-elem='search-input'
-         onChange={handleChange}
-         placeholder="Введите название вакансии"
-         icon={<FiSearch className={styles.magnifier} />}
-         rightSectionWidth={80}
-         rightSection={rightSection}
-         className={styles.search} 
-         styles={{
-            input: {
-               borderRadius: '8px', height: '48px'
-            }
-         }}
-      />
-            <Button
-         className={styles.button__media}
+         <TextInput
+            data-elem='search-input'
+            onChange={handleChange}
+            placeholder="Введите название вакансии"
+            icon={<FiSearch className={styles.magnifier} />}
+            rightSectionWidth={80}
+            rightSection={rightSection}
+            className={styles.search}
+            styles={{
+               input: {
+                  borderRadius: '8px', height: '48px'
+               }
+            }}
+         />
+         <Button
+            className={styles.button__media}
             data-elem='search-button'
             onClick={handleClick}
          >
