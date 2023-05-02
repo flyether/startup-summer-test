@@ -1,15 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import ico from '../../assets/svg/Union.svg'
 import { useAppSelector } from '../../store';
 import { LoadingScreen } from '../atoms/loading';
 
 import {
   AppShell,
   Header,
-  Image,
 } from "@mantine/core"
-
 
 import { IError } from '../../models';
 import { ServerError } from '../atoms/Modal/ServerError/server-error';
@@ -33,11 +30,9 @@ if(tokenData?.access_token) localStorage.setItem('token', tokenData?.access_toke
     const rejectedQuery = Object.values(queries).find((query) => query?.status === 'rejected');
 
     if (rejectedQuery && rejectedQuery.endpointName) {
-      // setRejectedEndpointName(displayError(rejectedQuery.endpointName));
-      // setRejectedEndpointName(rejectedQuery.error?.message);
       if (rejectedQuery?.error?.message) {
         setRejectedEndpointName(rejectedQuery.error?.message);
-      } else setRejectedEndpointName('ошибка квери');
+      } else setRejectedEndpointName('ошибка запроса');
     } else {
       setRejectedEndpointName(undefined);
     }
@@ -47,32 +42,31 @@ if(tokenData?.access_token) localStorage.setItem('token', tokenData?.access_toke
     const rejectedMutation = Object.values(mutations).find(
       (mutation) => mutation?.status === 'rejected'
     );
-    // тут по хорошему серилизовать бы кастомную ошибку, но у меня пока не вышло
+ 
     const serverError = rejectedMutation?.error as IError;
     if (rejectedMutation && rejectedMutation.endpointName) {
-      // setRejectedEndpointName(displayError(rejectedMutation.endpointName));
-      if (serverError?.data?.message) {
-        setRejectedEndpointName(serverError.data.message);
+      if (serverError?.error?.message) {
+        setRejectedEndpointName(serverError.error.message);
       } else setRejectedEndpointName('ошибка с сервера на мутацию');
     } else {
       setRejectedEndpointName(undefined);
     }
   }, [mutations]);
-  return (
-   
-
+  return (  
       <AppShell
         styles={{
           main: {
             background: '#F5F5F5',
-            width: "100vw",
+            width: "100%",
             height: "100%",
             paddingLeft: '0px',
+            paddingRight: '0px',
             display: 'flex',
-    
             justifyContent: 'center',
             marginLeft: 'auto',
             marginRight: 'auto',
+            paddingTop:'85px',
+            letterSpacing:' 0.045em',
           }
         }}
         fixed
@@ -80,16 +74,16 @@ if(tokenData?.access_token) localStorage.setItem('token', tokenData?.access_toke
         header={
           <Header height={84} p="md">
             <div style={{
-              display: "flex", alignItems: 'center', height: "100%", maxWidth: "1440px", marginLeft: 'auto', paddingLeft: '160px',
+              display: "flex", alignItems: 'center', height: "100%", maxWidth: "1440px", marginLeft: 'auto', paddingLeft: '145px',
               marginRight: 'auto',
-              paddingRight: '300px',
+              paddingRight: '265px',
             }}>
 
 
               <div style={{
                 display: 'flex', gap: '7px', alignItems: 'center', fontFamily: 'Poppins', fontWeight: '600',
                 fontSize: '24px', lineHeight: '36px', letterSpacing: '-0.02em'
-              }}>   <Image maw={30} mx="auto" radius="md" src={ico} alt="Random image" />Jobored</div>
+              }}>   <div className='logo'/>Jobored</div>
               <Links />
             </div>
           </Header>

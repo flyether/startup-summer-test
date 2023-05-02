@@ -1,21 +1,20 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 0px 28px;
+  margin-left: 28px;
   gap: 16px;
   width: 100%;
-  max-width: 829px;
-
+  max-width: 770px;
 }
 
 .cards__container{
   display: flex;
   flex-direction: column; 
-  gap: 16px;
+  gap: 20px;
  
 }
 .pagination{
-  margin: 40px auto 44px;
+  margin: 30px auto 44px;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -23,14 +22,10 @@
 .star{
   width: 22px;
   height: 22px;
- 
   background-repeat: no-repeat;
   background-color: transparent;
 }
-.text__vac{
-font-size: 28px;
-font-weight: 700;
-}
+
 .text{
   font-size: 20px;
 font-weight: 600;
@@ -45,4 +40,25 @@ color:#5E96FC;
 .card{
   max-width: 773px;
   width: 100%;
+  padding: 10px 20px;
+}
+
+.group__up{
+  margin: 10px 4px 5px;
+}
+
+.group__mid{
+  gap: 10px;
+  margin: 0px 4px 8px;
+  word-spacing: 0.07em;
+  letter-spacing: 0.015em;
+}
+.group__mid__text{
+  letter-spacing: 0.02em;
+  word-spacing: 0.01em;
+}
+
+.group__down{
+  gap: 10px;
+  margin:0 5px 9px;
 }

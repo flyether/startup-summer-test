@@ -11,14 +11,14 @@ export const FavoritePage = () => {
   const [trigger] = API.useLazyGetVacanciesByIdQuery()
   const favorite = useAppSelector((state) => state.commonSlice.favoriteArray)
   const [cardsForDisplay, setCardsForDisplay] = useState<CardProps[]>([]);
-  
+
   const [activePage, setPage] = useState(1);
   const cardsPerPage = 4;
   const startIndex = (activePage - 1) * cardsPerPage;
-   const endIndex = startIndex + cardsPerPage;
-   const displayedObjects = cardsForDisplay?.slice(startIndex, endIndex);
+  const endIndex = startIndex + cardsPerPage;
+  const displayedObjects = cardsForDisplay?.slice(startIndex, endIndex);
 
-  console.log(favorite  )
+  console.log(favorite)
 
   useEffect(() => {
     if (favorite) {
@@ -39,12 +39,12 @@ export const FavoritePage = () => {
 
   return (
     <div className={styles.cards__container}>
-      {!favorite || favorite.length <1 ? <EmptyBlock/>: <>{displayedObjects && displayedObjects.map((card) => (
+      {!favorite || favorite.length < 1 ? <EmptyBlock /> : <>{displayedObjects && displayedObjects.map((card) => (
         <div key={card.id + 332} > <CardVacancy card={card} /></div>
       ))}
-       <div className={styles.pagination}>
-        {favorite && favorite.length >0 ? <Pagination total={favorite.length / cardsPerPage} onChange={setPage} /> : null }    
-         </div> </> }    
+        <div className={styles.pagination}>
+          {favorite && favorite.length > 0 ? <Pagination total={favorite.length / cardsPerPage} onChange={setPage} /> : null}
+        </div> </>}
     </div>
   );
 };

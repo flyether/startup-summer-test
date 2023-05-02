@@ -1,6 +1,6 @@
 .container{
    display: flex;
-   padding: 40px 162px 44px;
+   padding: 40px 142px 44px 162px ;
    width: 100%;
    max-width: 1440px;
 }

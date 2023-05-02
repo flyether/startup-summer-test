@@ -1,23 +1,23 @@
-.cards__container{
-   display: flex;
-   flex-direction: column;
+.cards__container {
+  display: flex;
+  flex-direction: column;
   margin: 40px auto 0;
   gap: 16px;
-   width: 100%;
-   max-width: 733px;
+  width: 100%;
+  max-width: 733px;
 }
-.pagination{
-   margin: 104px auto 44px;
-   display: flex;
-   justify-content: center;
-   width: 100%;
- }
-@media (max-width: 1055px) { 
-   .container{
-      flex-direction: column;
-      padding: 40px;
-      gap: 70px;
-      justify-content: center;
-      align-items: center;
-    }
+.pagination {
+  margin: 104px auto 44px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+@media (max-width: 1055px) {
+  .container {
+    flex-direction: column;
+    padding: 40px;
+    gap: 70px;
+    justify-content: center;
+    align-items: center;
+  }
 }

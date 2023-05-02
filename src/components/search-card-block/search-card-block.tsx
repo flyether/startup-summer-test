@@ -4,14 +4,13 @@ import { Cards } from './cards';
 import { Search } from './search';
 import styles from './styles.module.css';
 
-export  const SearchCardBlock = () => {
+export const SearchCardBlock = () => {
   const { data } = API.useVacanciesSearchQuery({});
-  
+
   return (
     <div className={styles.container}>
-    <Search/>
-    {data && <Cards objects={data.objects}/>}
-    
+      <Search />
+      {data && <Cards objects={data.objects} />}
     </div>
   );
 };

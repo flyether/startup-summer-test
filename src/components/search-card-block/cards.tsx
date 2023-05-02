@@ -43,11 +43,10 @@ export const Cards = ({ objects }: ResponseVacancies) => {
          {displayedObjects.length < 1 ? <EmptyBlock /> : <> <div className={styles.cards__container}>
             {displayedObjects && displayedObjects.map((card) => (
                <div key={card.id} > <CardVacancy card={card} /></div>
-
             ))}
          </div>
             <div className={styles.pagination}>
-               <Pagination total={objects.length / cardsPerPage} onChange={setPage} />
+               <Pagination  total={objects.length / cardsPerPage} onChange={setPage} />
             </div> </>}
       </>
    );

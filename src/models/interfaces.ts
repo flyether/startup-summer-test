@@ -1,11 +1,15 @@
 import { SerializedError } from '@reduxjs/toolkit';
 
 export interface IError extends SerializedError {
-  data: {
+  data?: {
     message: string;
     stack: string;
   };
-  status: number;
+  error?: {
+    message: string;
+    code: number;
+  };
+  status?: number;
 }
 
 
@@ -18,6 +22,9 @@ export type VerificationToken = {
 };
 
 export type JobSearchParams = {
+  page?:number;
+  count?:number;
+  total?:number;
   id_vacancy?: number;
   ids?: number[];
   id_client?: number;

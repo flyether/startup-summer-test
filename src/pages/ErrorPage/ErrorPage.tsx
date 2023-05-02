@@ -12,14 +12,14 @@ const ErrorPage = () => {
     >
       <h1
         style={{
-        
+
           fontSize: '4rem',
           color: '#5E96FC'
         }}
       >
         404
       </h1>
-   <EmptyBlock/>
+      <EmptyBlock />
     </main>
   );
 };

@@ -25,14 +25,18 @@ export const API = commonApi.injectEndpoints({
     }),
 
     vacanciesSearch: build.query< ResponseVacancies, JobSearchParams>({
-      query: ({published=1, keyword = '',  payment_from = null, payment_to = null, catalogues = [] }) => ({
+      query: ({published=1,  count = 100,  keyword = '', no_agreement=1,  payment_from = null, payment_to = null, catalogues = [] }) => ({
         url: Url.PATH_VACANCIES,
         params: {
+          count,
+          no_agreement,
           published,
           keyword,
           catalogues,
-          ...(payment_from !== null ||  0  ? { payment_from } : {}),
-          ...(payment_to !== null || 0  ? { payment_to } : {}),
+          payment_from,
+          payment_to,
+          // ...(payment_from !== null? { payment_from } : {}),
+          // ...(payment_to !== null  ? { payment_to } : {}),
         },
        }),
     
